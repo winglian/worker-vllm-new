@@ -9,3 +9,5 @@ ARG MODEL_BASE_PATH="/runpod-volume/"
 ENV MODEL_BASE_PATH=${MODEL_BASE_PATH}
 
 RUN HUGGING_FACE_HUB_TOKEN=$HUGGING_FACE_HUB_TOKEN python download_model.py
+
+COPY src/handler.py .

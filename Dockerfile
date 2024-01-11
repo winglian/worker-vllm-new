@@ -1,6 +1,6 @@
 # Base image
 # The following docker base image is recommended by VLLM:
-FROM runpod/pytorch:2.0.1-py3.10-cuda11.8.0-devel
+FROM runpod/pytorch:2.1.1-py3.10-cuda12.1.1-devel-ubuntu22.04
 
 # Use bash shell with pipefail option
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
@@ -10,7 +10,7 @@ WORKDIR /
 
 # Update and upgrade the system packages (Worker Template)
 ARG DEBIAN_FRONTEND=noninteractive
-RUN pip install -U torch==2.0.1 -f https://download.pytorch.org/whl/cu118
+RUN pip install -U torch==2.1.1 -f https://download.pytorch.org/whl/cu121
 COPY builder/setup.sh /setup.sh
 RUN chmod +x /setup.sh && \
     /setup.sh && \
